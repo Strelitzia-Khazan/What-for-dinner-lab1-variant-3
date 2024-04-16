@@ -20,12 +20,8 @@ enough for educational purposes.
 
 ## Changelog
 
-- 29.03.2022 - 2
-  - Add test coverage.
-- 29.03.2022 - 1
-  - Update README. Add formal sections.
-- 29.03.2022 - 0
-  - Initial
+- 17.04.2024 - 0
+  - Change the README.md title and enter the development stage
 
 ## Design notes
 
