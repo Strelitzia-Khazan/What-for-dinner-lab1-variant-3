@@ -22,6 +22,8 @@ enough for educational purposes.
 
 - 17.04.2024 - 0
   - Change the README.md title and enter the development stage
+- 19.04.2024 - 1
+  - Added BinaryTreeNode class and BinaryTree class, Added some custom functions. At the same time, the file name was changed to BinaryTree.py.
 
 ## Design notes
 
