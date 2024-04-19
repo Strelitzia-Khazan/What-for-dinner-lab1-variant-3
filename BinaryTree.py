@@ -185,5 +185,38 @@ class BinaryTree:
         apply_map(self.root)
         return self
     
+    def reduce(self, function, initial_state=0):
+        state = initial_state
+        list = self.to_list_pre_order()
+        for value in list:
+            state = function(state, value)
+        return state
     
+    def __iter__(self):
+        self.level_queue = []
+        if self.root is not None:
+            self.level_queue.append(self.root)
+        return self
 
+    def __next__(self):
+        if not self.level_queue:
+            raise StopIteration
+        node = self.level_queue.pop(0)
+        if node.left is not None:
+            self.level_queue.append(node.left)
+        if node.right is not None:
+            self.level_queue.append(node.right)
+        return node.value
+
+    def empty(self):
+        return None
+    
+    def concat(self, tree_A, tree_B):
+        if not tree_A:
+            return tree_B
+        if not tree_B:
+            return tree_A
+        root = BinaryTreeNode(tree_A.value + tree_B.value)
+        root.left = self.concat(tree_A.left, tree_B.left)
+        root.right = self.concat(tree_A.right, tree_B.right)
+        return root
