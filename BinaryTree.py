@@ -110,13 +110,13 @@ class BinaryTree:
         else:
             return False
         
-    def pre_order_to_list(self):
+    def to_list_pre_order(self):
         if self.root is None:
             return []
         else:
             # Recursively obtain the pre-order traversal list of the left and right subtrees
-            left_list = BinaryTree(self.root.left).pre_order_to_list()
-            right_list = BinaryTree(self.root.right).pre_order_to_list()
+            left_list = BinaryTree(self.root.left).to_list_pre_order()
+            right_list = BinaryTree(self.root.right).to_list_pre_order()
             if left_list is None and right_list is None:
                 return [self.root.value]
             elif left_list is None:
@@ -126,39 +126,8 @@ class BinaryTree:
             else: 
                 return [self.root.value] + left_list + right_list   
 
-    def in_order_to_list(self):
-        if self.root is None:
-            return []
-        else:
-            # Recursively obtain the in-order traversal list of the left and right subtrees
-            left_list = BinaryTree(self.root.left).in_order_to_list()
-            right_list = BinaryTree(self.root.right).in_order_to_list()
-            if left_list is None and right_list is None:
-                return [self.root.value]
-            elif left_list is None:
-                return [self.root.value] + right_list
-            elif right_list is None:
-                return left_list + [self.root.value]
-            else:
-                return left_list + [self.root.value] + right_list
-
-    def post_order_to_list(self):
-        if self.root is None:
-            return []
-        else:
-            # Recursively obtain the post-order traversal list of the left and right subtrees
-            left_list = BinaryTree(self.root.left).post_order_to_list()
-            right_list = BinaryTree(self.root.right).post_order_to_list()
-            if left_list is None and right_list is None:
-                return [self.root.value]
-            elif left_list is None:
-                return right_list + [self.root.value]
-            elif right_list is None:
-                return left_list + [self.root.value]
-            else:
-                return left_list + right_list + [self.root.value]
     
-    def level_order_to_list(self):
+    def to_list_level_order(self):
         if self.root is None:
             return []
         list = []
@@ -180,4 +149,41 @@ class BinaryTree:
         left_depth = BinaryTree(self.root.left).get_depth()
         right_depth = BinaryTree(self.root.right).get_depth()
         return depth + max(left_depth, right_depth)
+
+    def get_size(self):
+        if self.root is None:
+            return 0
+        size = 1
+        # Recursively calculate the number of nodes in the left and right subtrees
+        left_size = BinaryTree(self.root.left).size()
+        right_size = BinaryTree(self.root.right).size()
+        return size + left_size + right_size
+    
+    def from_list(self,list):
+        for value in list:
+            self.add_node(value)
+        return self
+    
+    def filter(self):
+        list = self.to_list_pre_order()
+        result = []
+        for value in list:
+            if isinstance(value, int):
+                result.append(value)
+        return result
+    
+    def map(self, function):
+        if self.root is None:
+            return self
+        
+        def apply_map(node):
+            if node is not None:
+                node.value = function(node.value)
+                apply_map(node.left)
+                apply_map(node.right)
+
+        apply_map(self.root)
+        return self
+    
+    
 
