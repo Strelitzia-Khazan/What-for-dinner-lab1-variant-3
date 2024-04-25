@@ -16,7 +16,7 @@ enough for educational purposes.
 
 ## Contribution
 
-- Lu Bin (EMAIL) -- BinaryTree.py.
+- Lu Bin (1476683166@qq.com) -- BinaryTree.py.
 - Wang Yining (351432511@qq.com) -- BinaryTree_test.py.
 
 ## Changelog
@@ -42,8 +42,23 @@ enough for educational purposes.
 
 ## Design notes
 
-- For mutable, we define a node structure and a tree structure, and the functions
-- are all inthe tree class. In the custom function stage, recursion is used to
-- handle various operationson the binary tree, which simplifies the code
-- implementation. At the same time, iteratorsare implemented through breadth-first
-- search to facilitate iterative traversal of binary trees.
+- Implementation restrictions:
+   - For mutable, we define a node structure and a tree structure, and the functions
+     are all in the tree class. In the custom function stage, recursion is used to
+     handle various operations on the binary tree, which simplifies the code
+     implementation. At the same time, iterators are implemented through breadth-first
+     search to facilitate iterative traversal of binary trees.
+- Advantages of unit test and PBT test
+   - Unit tests focus on testing individual units of the code in isolation.
+     This allows for pinpointing bugs or issues within specific functions.
+   - When a unit test fails, it's usually easy to pinpoint the cause of the failure 
+     since the scope is limited to a specific unit of code. 
+   - PBT generates test cases automatically based on properties or specifications of the system, 
+     allowing for more thorough and exploratory testing.
+   - PBT can uncover edge cases and corner scenarios that may not be covered by 
+     traditional unit tests, leading to the discovery of bugs or unexpected behavior.  
+- Disadvantages of unit test and PBT test
+   - Unit tests only verify the behavior of individual units in isolation, 
+     which may not capture integration issues or interactions between components.
+   - When a property-based test fails, it may be challenging to pinpoint the exact cause of the failure 
+     since the test cases are generated automatically.  
