@@ -13,7 +13,7 @@ class BinaryTree:
     def __init__(self, root=None):
         self.root = root # root node of binary tree
         self.level_queue = [] # Store the hierarchical traversal order of tree nodes
-        self.current = 0 # Store current loaction
+        self.current = 0 # Store current location
     
     def add_node(self, value):
         if value is None:

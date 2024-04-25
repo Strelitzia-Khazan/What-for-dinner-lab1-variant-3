@@ -6,9 +6,9 @@ enough for educational purposes.
 
 ## Project structure
 
-- `foo.py` -- implementation of `Foo` class with `hello` and `add` features.
-   Stateless.
-- `foo_test.py` -- unit and PBT tests for `Foo`.
+- `BinaryTree.py` -- implementation of `BinaryTree` class and `BinaryTreeNode` class.
+ 
+- `BinaryTree_test.py` -- unit and PBT tests for `BinaryTree`.
 
 ## Features
 
@@ -16,7 +16,8 @@ enough for educational purposes.
 
 ## Contribution
 
-- Aleksandr Penskoi (EMAIL) -- all work.
+- Lu Bin (EMAIL) -- BinaryTree.py.
+- Wang Yining (351432511@qq.com) -- BinaryTree_test.py.
 
 ## Changelog
 
@@ -26,8 +27,11 @@ enough for educational purposes.
   - Added BinaryTreeNode class and BinaryTree class, Added some custom functions. At the same time, the file name was changed to BinaryTree.py.
 - 19.04.2024 - 2
   - Changed the names of some functions and deleted some unnecessary functions; added new functions.
-- 19.04.2024 - 
+- 19.04.2024 - 3
   - All required functions have been added, and the writing of BinaryTree.py has been completed temporarily, waiting for testing.
+  - Implemented unit tests for BinaryTree and updated the README.
+- 20.04.2024 - 3
+  - Implemented property-based tests for BinaryTree.
 
 ## Design notes
 
