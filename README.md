@@ -24,13 +24,15 @@ enough for educational purposes.
 - 17.04.2024 - 0
    - Change the README.md title and enter the development stage
 - 19.04.2024 - 1
-   - Added BinaryTreeNode class and BinaryTree class, Added some custom functions. 
+   - Added BinaryTreeNode class and BinaryTree class.
+     Added some custom functions.
      At the same time, the file name was changed to BinaryTree.py.
 - 19.04.2024 - 2
-   - Changed the names of some functions and deleted some unnecessary functions. 
+   - Changed the names of some functions.
+   - Deleted some unnecessary functions.
    - Added new functions.
 - 19.04.2024 - 3
-   - All required functions have been added, and the writing of BinaryTree.py has been completed temporarily, waiting for testing.
+   - All required functions have been added, and the writing of BinaryTree.py has been completed temporarily.
    - Implemented unit tests for BinaryTree and updated the README.
 - 20.04.2024 - 4
    - Implemented property-based tests for BinaryTree.
