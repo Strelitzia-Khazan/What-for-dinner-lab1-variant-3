@@ -51,14 +51,15 @@ enough for educational purposes.
 - Advantages of unit test and PBT test
    - Unit tests focus on testing individual units of the code in isolation.
      This allows for pinpointing bugs or issues within specific functions.
-   - When a unit test fails, it's usually easy to pinpoint the cause of the failure 
+   - When a unit test fails, it's usually easy to pinpoint the cause of the failure
      since the scope is limited to a specific unit of code. 
-   - PBT generates test cases automatically based on properties or specifications of the system, 
+   - PBT generates test cases automatically based on properties or specifications of the system,
      allowing for more thorough and exploratory testing.
    - PBT can uncover edge cases and corner scenarios that may not be covered by 
-     traditional unit tests, leading to the discovery of bugs or unexpected behavior.  
+     traditional unit tests, leading to the discovery of bugs or unexpected behavior.
 - Disadvantages of unit test and PBT test
    - Unit tests only verify the behavior of individual units in isolation, 
      which may not capture integration issues or interactions between components.
-   - When a property-based test fails, it may be challenging to pinpoint the exact cause of the failure 
-     since the test cases are generated automatically.  
+   - When a property-based test fails, it may be challenging to pinpoint the exact cause of the failure
+     since the test cases are generated automatically.
+ 
