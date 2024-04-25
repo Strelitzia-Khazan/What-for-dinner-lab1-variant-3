@@ -18,7 +18,7 @@ class BinaryTree:
         self.level_queue = []
         # Store current location
         self.current = 0
-    
+
     def add_node(self, value):
         if value is None:
             return  # No node is generated when value is none
@@ -57,17 +57,17 @@ class BinaryTree:
                 if current.left.value == value:
                     return current
                 node_queue.append(current.left)
-                
+
             if current.right:
                 if current.right.value == value:
                     return current
-                node_queue.append(current.right)               
+                node_queue.append(current.right)
         return None
-    
+
     def remove(self, value):
         if self.root is None:
             return False
-        
+
         if self.root.value == value:
             self.root = None
             return True
@@ -107,7 +107,8 @@ class BinaryTree:
                     tmp_next.left = delete_node.left
                     tmp_next.right = delete_node.right
 
-                # Link the successor node to the corresponding child node of the parent node
+                # Link the successor node to the
+                # corresponding child node of the parent node
                 if parent.left.value == value:
                     parent.left = tmp_next
                 else:
@@ -120,7 +121,8 @@ class BinaryTree:
         if self.root is None:
             return []
         else:
-            # Recursively obtain the pre-order traversal list of the left and right subtrees
+            # Recursively obtain the pre-order traversal list
+            # of the left and right subtrees
             left_list = BinaryTree(self.root.left).to_list_pre_order()
             right_list = BinaryTree(self.root.right).to_list_pre_order()
             if left_list is None and right_list is None:
@@ -159,11 +161,12 @@ class BinaryTree:
         if self.root is None:
             return 0
         size = 1
-        # Recursively calculate the number of nodes in the left and right subtrees
+        # Recursively calculate the number of nodes
+        # in the left and right subtrees
         left_size = BinaryTree(self.root.left).get_size()
         right_size = BinaryTree(self.root.right).get_size()
         return size + left_size + right_size
-    
+
     def from_list(self, list):
         for value in list:
             self.add_node(value)
