@@ -4,20 +4,24 @@ class BinaryTreeNode:
         self.value = value
         self.left = left
         self.right = right
-    
+
     def get_value(self):
         return self.value
-    
+
+
 class BinaryTree:
     # Initialize a binary tree
     def __init__(self, root=None):
-        self.root = root # root node of binary tree
-        self.level_queue = [] # Store the hierarchical traversal order of tree nodes
-        self.current = 0 # Store current location
+        # root node of binary tree
+        self.root = root
+        # Store the hierarchical traversal order of tree nodes
+        self.level_queue = []
+        # Store current location
+        self.current = 0
     
     def add_node(self, value):
         if value is None:
-            return # No node is generated when value is none
+            return  # No node is generated when value is none
 
         new_node = BinaryTreeNode(value)
         # Checks whether the root node is empty
@@ -27,22 +31,24 @@ class BinaryTree:
             node_queue = [self.root]
             while node_queue:
                 current = node_queue.pop(0)
-                # Checks whether the left child node of the current node is empty
+                # Checks whether the left child node of
+                # the current node is empty
                 if current.left is None:
                     current.left = new_node
                     break
-                # Checks whether the right child node of the current node is empty
+                # Checks whether the right child node of
+                # the current node is empty
                 elif current.right is None:
                     current.right = new_node
                     break
                 else:
                     node_queue.append(current.left)
                     node_queue.append(current.right)
-    
+
     def get_parent(self, value):
         if self.root is None or self.root.value == value:
             return None
-        
+
         node_queue = [self.root]
         # Use breadth-first search to traverse the tree
         while node_queue:
@@ -65,7 +71,7 @@ class BinaryTree:
         if self.root.value == value:
             self.root = None
             return True
-        
+
         # Find the parent node of the node to be deleted
         parent = self.get_parent(value)
         if parent:
@@ -100,7 +106,7 @@ class BinaryTree:
                     tmp_pre.left = tmp_next.right
                     tmp_next.left = delete_node.left
                     tmp_next.right = delete_node.right
-                
+
                 # Link the successor node to the corresponding child node of the parent node
                 if parent.left.value == value:
                     parent.left = tmp_next
@@ -109,7 +115,7 @@ class BinaryTree:
             return True
         else:
             return False
-        
+
     def to_list_pre_order(self):
         if self.root is None:
             return []
@@ -123,10 +129,9 @@ class BinaryTree:
                 return [self.root.value] + right_list
             elif right_list is None:
                 return [self.root.value] + left_list
-            else: 
-                return [self.root.value] + left_list + right_list   
+            else:
+                return [self.root.value] + left_list + right_list
 
-    
     def to_list_level_order(self):
         if self.root is None:
             return []
@@ -140,7 +145,7 @@ class BinaryTree:
             if current.right:
                 node_queue.append(current.right)
         return list
-    
+
     def get_depth(self):
         if self.root is None:
             return 0
@@ -159,11 +164,11 @@ class BinaryTree:
         right_size = BinaryTree(self.root.right).get_size()
         return size + left_size + right_size
     
-    def from_list(self,list):
+    def from_list(self, list):
         for value in list:
             self.add_node(value)
         return self
-    
+
     def filter(self):
         list = self.to_list_pre_order()
         result = []
@@ -171,11 +176,11 @@ class BinaryTree:
             if isinstance(value, int):
                 result.append(value)
         return result
-    
+
     def map(self, function):
         if self.root is None:
             return self
-        
+
         def apply_map(node):
             if node is not None:
                 node.value = function(node.value)
@@ -184,14 +189,14 @@ class BinaryTree:
 
         apply_map(self.root)
         return self
-    
+
     def reduce(self, function, initial_state=0):
         state = initial_state
         list = self.to_list_pre_order()
         for value in list:
             state = function(state, value)
         return state
-    
+
     def __iter__(self):
         self.level_queue = []
         if self.root is not None:
@@ -210,7 +215,7 @@ class BinaryTree:
 
     def empty(self):
         return None
-    
+
     def concat(self, tree_A, tree_B):
         if not tree_A:
             return tree_B

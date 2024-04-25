@@ -118,8 +118,8 @@ class TestBinaryTree(unittest.TestCase):
         tree_BD.root = tree_BD.concat(tree_B.root, tree_D.root)
         tree_ABD2 = BinaryTree()
         tree_ABD2.root = tree_ABD2.concat(tree_A.root, tree_BD.root)
-        listABD1 =  tree_ABD1.to_list_level_order()
-        listABD2 =  tree_ABD2.to_list_level_order()
+        listABD1 = tree_ABD1.to_list_level_order()
+        listABD2 = tree_ABD2.to_list_level_order()
         self.assertEqual(listABD1, listABD2)
 
     def test_iterator(self):
