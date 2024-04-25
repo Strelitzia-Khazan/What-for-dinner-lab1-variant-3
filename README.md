@@ -60,5 +60,5 @@ enough for educational purposes.
 - Disadvantages of unit test and PBT test
    - Unit tests only verify the behavior of individual units in isolation,
      which may not capture integration issues or interactions between components.
-   - When a property-based test fails, it may be challenging to pinpoint the exact cause
-     of the failure since the test cases are generated automatically.
+   - When a property-based test fails, it may be challenging to pinpoint the exact
+     cause of the failure since the test cases are generated automatically.
