@@ -32,7 +32,7 @@ enough for educational purposes.
    - Deleted some unnecessary functions.
    - Added new functions.
 - 19.04.2024 - 3
-   - All required functions have been added, and BinaryTree.py has been completed temporarily.
+   - All required functions have been added, and BinaryTree.py has been completed.
    - Implemented unit tests for BinaryTree and updated the README.
 - 20.04.2024 - 4
    - Implemented property-based tests for BinaryTree.
@@ -42,7 +42,8 @@ enough for educational purposes.
 
 ## Design notes
 
-- For mutable, we define a node structure and a tree structure, and the functions are all in 
-- the tree class. In the custom function stage, recursion is used to handle various operations 
-- on the binary tree, which simplifies the code implementation. At the same time, iterators 
-- are implemented through breadth-first search to facilitate iterative traversal of binary trees.
+- For mutable, we define a node structure and a tree structure, and the functions
+- are all inthe tree class. In the custom function stage, recursion is used to
+- handle various operationson the binary tree, which simplifies the code
+- implementation. At the same time, iteratorsare implemented through breadth-first
+- search to facilitate iterative traversal of binary trees.
