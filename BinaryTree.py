@@ -155,8 +155,8 @@ class BinaryTree:
             return 0
         size = 1
         # Recursively calculate the number of nodes in the left and right subtrees
-        left_size = BinaryTree(self.root.left).size()
-        right_size = BinaryTree(self.root.right).size()
+        left_size = BinaryTree(self.root.left).get_size()
+        right_size = BinaryTree(self.root.right).get_size()
         return size + left_size + right_size
     
     def from_list(self,list):
