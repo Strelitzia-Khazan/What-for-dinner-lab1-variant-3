@@ -42,4 +42,7 @@ enough for educational purposes.
 
 ## Design notes
 
-- ...
+- For mutable, we define a node structure and a tree structure, and the functions are all in 
+- the tree class. In the custom function stage, recursion is used to handle various operations 
+- on the binary tree, which simplifies the code implementation. At the same time, iterators 
+- are implemented through breadth-first search to facilitate iterative traversal of binary trees.
