@@ -32,7 +32,7 @@ enough for educational purposes.
    - Deleted some unnecessary functions.
    - Added new functions.
 - 19.04.2024 - 3
-   - All required functions have been added, and the writing of BinaryTree.py has been completed temporarily.
+   - All required functions have been added, and BinaryTree.py has been completed temporarily.
    - Implemented unit tests for BinaryTree and updated the README.
 - 20.04.2024 - 4
    - Implemented property-based tests for BinaryTree.
