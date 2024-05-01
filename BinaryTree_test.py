@@ -97,7 +97,8 @@ class TestBinaryTree(unittest.TestCase):
         result = tree.reduce(lambda acc, x: acc + x, 0)
         self.assertEqual(result, 15)
 
-    @given(st.lists(st.integers()), st.lists(st.integers()), st.lists(st.integers()))
+    @given(st.lists(st.integers()), st.lists(st.integers()),
+           st.lists(st.integers()))
     def test_concat_associativity(self, list_a, list_b, list_c):
         tree_a = BinaryTree()
         tree_a.from_list(list_a)
