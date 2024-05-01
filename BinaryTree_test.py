@@ -1,11 +1,12 @@
 import unittest
-from hypothesis import given,  strategies
+from hypothesis import given
+from hypothesis import strategies as st
 from BinaryTree import BinaryTree
 
 
 class TestBinaryTree(unittest.TestCase):
     # strategies.integers() generate an Integer list as input
-    @given(strategies.lists(strategies.integers()))
+    @given(st.lists(st.integers()))
     def test_add_node(self, values):
         tree = BinaryTree()
         for value in values:
@@ -70,7 +71,7 @@ class TestBinaryTree(unittest.TestCase):
         tree.add_node(3)
         self.assertEqual(tree.get_size(), 3)
 
-    @given(strategies.lists(strategies.integers()))
+    @given(st.lists(st.integers()))
     def test_from_list(self, values):
         tree = BinaryTree()
         tree.from_list(values)
@@ -96,31 +97,38 @@ class TestBinaryTree(unittest.TestCase):
         result = tree.reduce(lambda acc, x: acc + x, 0)
         self.assertEqual(result, 15)
 
-    def test_concat(self):
-        tree_A = BinaryTree()
-        tree_A.from_list([1, 2, 3])
-        tree_B = BinaryTree()
-        tree_B.from_list([1, 2, 3, 4])
-        tree_AB = BinaryTree()
-        tree_AB.root = tree_AB.concat(tree_A.root, tree_B.root)
-        self.assertEqual(tree_AB.to_list_level_order(), [2, 4, 6, 4])
-        # test for Identity element
-        tree_C = BinaryTree()
-        tree_AC = BinaryTree()
-        tree_AC.root = tree_AC.concat(tree_A.root, tree_C.root)
-        self.assertEqual(tree_AC.to_list_level_order(), [1, 2, 3])
-        # test for associativity
-        tree_D = BinaryTree()
-        tree_D.from_list([1, 2, 3, 4, 5])
-        tree_ABD1 = BinaryTree()
-        tree_ABD1.root = tree_ABD1.concat(tree_AB.root, tree_D.root)
-        tree_BD = BinaryTree()
-        tree_BD.root = tree_BD.concat(tree_B.root, tree_D.root)
-        tree_ABD2 = BinaryTree()
-        tree_ABD2.root = tree_ABD2.concat(tree_A.root, tree_BD.root)
-        listABD1 = tree_ABD1.to_list_level_order()
-        listABD2 = tree_ABD2.to_list_level_order()
-        self.assertEqual(listABD1, listABD2)
+    @given(st.lists(st.integers()), st.lists(st.integers()), st.lists(st.integers()))
+    def test_concat_associativity(self, list_a, list_b, list_c):
+        tree_a = BinaryTree()
+        tree_a.from_list(list_a)
+        tree_b = BinaryTree()
+        tree_b.from_list(list_b)
+        tree_c = BinaryTree()
+        tree_c.from_list(list_c)
+        tree_ab = BinaryTree()
+        tree_ab.root = tree_ab.concat(tree_a.root, tree_b.root)
+        tree_ab_c = BinaryTree()
+        tree_ab_c.root = tree_ab_c.concat(tree_ab.root, tree_c.root)
+        tree_bc = BinaryTree()
+        tree_bc.root = tree_bc.concat(tree_b.root, tree_c.root)
+        tree_a_bc = BinaryTree()
+        tree_a_bc.root = tree_a_bc.concat(tree_a.root, tree_bc.root)
+        listABC1 = tree_a_bc.to_list_level_order()
+        listABC2 = tree_ab_c.to_list_level_order()
+        self.assertEqual(listABC1, listABC2)
+
+    @given(st.lists(st.integers()))
+    def test_concat_identity(self, list_a):
+        tree_a = BinaryTree()
+        tree_a.from_list(list_a)
+        tree_empty = BinaryTree()
+        tree_ea = BinaryTree()
+        tree_ea.root = tree_ea.concat(tree_empty.root, tree_a.root)
+        tree_ae = BinaryTree()
+        tree_ae.root = tree_ae.concat(tree_a.root, tree_empty.root)
+        list_ae = tree_ae.to_list_level_order()
+        list_ea = tree_ea.to_list_level_order()
+        self.assertEqual(list_ae, list_ea)
 
     def test_iterator(self):
         tree = BinaryTree()
